@@ -14,12 +14,6 @@ export const Route = createFileRoute("/about")({
   component: About,
 });
 
-const TIMELINE = [
-  { y: "2026", t: "Founded the agency", d: "Brought brand and engineering under one roof for select clients." },
-  { y: "2024", t: "Lead engineer roles", d: "Architected multi-tenant platforms in fintech and logistics." },
-  { y: "2022", t: "Senior software developer", d: "Full-stack delivery, design systems, observability." },
-  { y: "2020", t: "Started shipping for clients", d: "First production web apps. Learned discipline the hard way." },
-];
 
 function About() {
   return (
@@ -46,18 +40,6 @@ function About() {
         </div>
       </Section>
 
-      <Section eyebrow="Path" title="Career timeline.">
-        <ol className="relative border-l border-border pl-8 space-y-10">
-          {TIMELINE.map((s) => (
-            <li key={s.y} className="relative">
-              <span className="absolute -left-[37px] top-1.5 size-2.5 rounded-full bg-white" />
-              <div className="text-xs text-muted uppercase tracking-[0.18em]">{s.y}</div>
-              <h3 className="mt-1 font-medium">{s.t}</h3>
-              <p className="mt-1 text-sm text-muted leading-relaxed max-w-2xl">{s.d}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
     </>
   );
 }
