@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { LanguageProvider, useT } from "@/i18n/LanguageProvider";
 
 function NotFoundComponent() {
   return (
