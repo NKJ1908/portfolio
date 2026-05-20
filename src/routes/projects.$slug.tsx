@@ -54,7 +54,7 @@ function ProjectDetail() {
         <aside className="card-surface p-6 h-fit">
           <h3 className="text-sm uppercase tracking-[0.18em] text-muted">Stack</h3>
           <div className="mt-3 flex flex-wrap gap-2">
-            {p.stack.map((s) => (
+            {p.stack.map((s: string) => (
               <span key={s} className="text-xs px-2 py-1 border border-border rounded-md">{s}</span>
             ))}
           </div>
