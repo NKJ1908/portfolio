@@ -52,7 +52,8 @@ function ErrorView({ error }: { error: Error }) {
 
 function ProjectDetail() {
   const { t, lang } = useT();
-  const { project: p } = Route.useLoaderData();
+  const { project } = Route.useLoaderData();
+  const p = project as Project;
   const title = lang === "fr" && p.titleFr ? p.titleFr : p.title;
   const summary = lang === "fr" && p.summaryFr ? p.summaryFr : p.summary;
   return (
