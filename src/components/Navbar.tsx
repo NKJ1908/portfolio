@@ -1,10 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { NAV, SITE } from "@/constants/site";
+import { SITE } from "@/constants/site";
+import { useT } from "@/i18n/LanguageProvider";
+import { LANGS } from "@/i18n/translations";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { t, lang, setLang } = useT();
+
+  const items = [
+    { to: "/", label: t("nav.home"), exact: true },
+    { to: "/about", label: t("nav.about"), exact: false },
+    { to: "/services", label: t("nav.services"), exact: false },
+    { to: "/projects", label: t("nav.projects"), exact: false },
+    { to: "/contact", label: t("nav.contact"), exact: false },
+  ] as const;
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="container-x flex items-center justify-between h-16">
@@ -13,26 +25,46 @@ export function Navbar() {
           {SITE.name}
         </Link>
         <nav className="hidden md:flex items-center gap-8">
-          {NAV.map((n) => (
+          {items.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               className="text-sm text-muted hover:text-foreground transition-colors"
               activeProps={{ className: "text-sm text-foreground" }}
-              activeOptions={{ exact: n.to === "/" }}
+              activeOptions={{ exact: n.exact }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
-        <Link
-          to="/contact"
-          className="hidden md:inline-flex items-center px-4 py-2 text-sm border border-border rounded-md hover:bg-surface transition-colors"
-        >
-          Get in touch
-        </Link>
+        <div className="hidden md:flex items-center gap-3">
+          <div
+            role="group"
+            aria-label={t("nav.langLabel")}
+            className="flex items-center border border-border rounded-md overflow-hidden text-xs"
+          >
+            {LANGS.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => setLang(l.code)}
+                className={`px-2.5 py-1.5 transition-colors ${
+                  lang === l.code ? "bg-white text-[#0A192F]" : "text-muted hover:text-foreground"
+                }`}
+                aria-pressed={lang === l.code}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center px-4 py-2 text-sm border border-border rounded-md hover:bg-surface transition-colors"
+          >
+            {t("nav.cta")}
+          </Link>
+        </div>
         <button
-          aria-label="Toggle menu"
+          aria-label={t("nav.toggleMenu")}
           className="md:hidden p-2"
           onClick={() => setOpen((v) => !v)}
         >
@@ -42,18 +74,33 @@ export function Navbar() {
       {open && (
         <div className="md:hidden border-t border-border bg-background">
           <div className="container-x py-4 flex flex-col gap-3">
-            {NAV.map((n) => (
+            {items.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
                 className="text-sm text-muted hover:text-foreground py-1"
                 activeProps={{ className: "text-sm text-foreground py-1" }}
-                activeOptions={{ exact: n.to === "/" }}
+                activeOptions={{ exact: n.exact }}
               >
                 {n.label}
               </Link>
             ))}
+            <div className="flex items-center gap-2 pt-2 border-t border-border">
+              {LANGS.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => setLang(l.code)}
+                  className={`px-3 py-1.5 text-xs rounded-md border transition-colors ${
+                    lang === l.code
+                      ? "bg-white text-[#0A192F] border-white"
+                      : "border-border text-muted"
+                  }`}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}

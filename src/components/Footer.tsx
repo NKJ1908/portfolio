@@ -1,17 +1,26 @@
 import { Link } from "@tanstack/react-router";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { NAV, SITE } from "@/constants/site";
+import { SITE } from "@/constants/site";
+import { useT } from "@/i18n/LanguageProvider";
 
 export function Footer() {
+  const { t } = useT();
+  const items = [
+    { to: "/", label: t("nav.home") },
+    { to: "/about", label: t("nav.about") },
+    { to: "/services", label: t("nav.services") },
+    { to: "/projects", label: t("nav.projects") },
+    { to: "/contact", label: t("nav.contact") },
+  ] as const;
   return (
     <footer className="border-t border-border mt-20">
       <div className="container-x py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         <div>
           <div className="font-semibold">{SITE.name}</div>
-          <div className="text-sm text-muted mt-1">{SITE.role}</div>
+          <div className="text-sm text-muted mt-1">{t("footer.role")}</div>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
-          {NAV.map((n) => (
+          {items.map((n) => (
             <Link key={n.to} to={n.to} className="text-sm text-muted hover:text-foreground">
               {n.label}
             </Link>
@@ -31,8 +40,8 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="container-x py-5 text-xs text-muted flex justify-between">
-          <span>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</span>
-          <span>Built with intent.</span>
+          <span>© {new Date().getFullYear()} {SITE.name}. {t("footer.rights")}</span>
+          <span>{t("footer.built")}</span>
         </div>
       </div>
     </footer>
