@@ -14,20 +14,19 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider, useT } from "@/i18n/LanguageProvider";
 
 function NotFoundComponent() {
+  const { t } = useT();
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-semibold">404</h1>
-        <h2 className="mt-4 text-xl font-medium">Page not found</h2>
-        <p className="mt-2 text-sm text-muted">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <h2 className="mt-4 text-xl font-medium">{t("err.notFoundTitle")}</h2>
+        <p className="mt-2 text-sm text-muted">{t("err.notFoundDesc")}</p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-white text-[#0A192F] px-4 py-2 text-sm font-medium"
           >
-            Go home
+            {t("err.goHome")}
           </Link>
         </div>
       </div>
@@ -38,20 +37,21 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const { t } = useT();
   return (
     <div className="flex min-h-screen items-center justify-center px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold">This page didn't load</h1>
-        <p className="mt-2 text-sm text-muted">Something went wrong on our end.</p>
+        <h1 className="text-xl font-semibold">{t("err.didntLoad")}</h1>
+        <p className="mt-2 text-sm text-muted">{t("err.somethingWrong")}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => { router.invalidate(); reset(); }}
             className="rounded-md bg-white text-[#0A192F] px-4 py-2 text-sm font-medium"
           >
-            Try again
+            {t("err.tryAgain")}
           </button>
           <a href="/" className="rounded-md border border-border px-4 py-2 text-sm font-medium">
-            Go home
+            {t("err.goHome")}
           </a>
         </div>
       </div>
@@ -97,13 +97,15 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
