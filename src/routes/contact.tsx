@@ -7,9 +7,9 @@ import { SITE } from "@/constants/site";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Alex Mensah" },
+      { title: "Contact — Jean N'TCHOUGAN" },
       { name: "description", content: "Get in touch about software development engagements, agency work or general inquiries." },
-      { property: "og:title", content: "Contact — Alex Mensah" },
+      { property: "og:title", content: "Contact — Jean N'TCHOUGAN" },
       { property: "og:description", content: "Start a conversation." },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
@@ -44,8 +44,9 @@ function Contact() {
         <aside className="md:col-span-2 space-y-3">
           <ContactLink icon={Mail} label="Email" value={SITE.email} href={`mailto:${SITE.email}`} />
           <ContactLink icon={MessageCircle} label="WhatsApp" value={SITE.whatsapp} href={`https://wa.me/${SITE.whatsapp.replace(/\D/g, "")}`} />
-          <ContactLink icon={Github} label="GitHub" value="@mensah" href={SITE.github} />
-          <ContactLink icon={Linkedin} label="LinkedIn" value="in/mensah" href={SITE.linkedin} />
+          <ContactLink icon={MessageCircle} label="Phone (alt)" value={SITE.whatsappAlt} href={`tel:${SITE.whatsappAlt.replace(/\s/g, "")}`} />
+          <ContactLink icon={Github} label="Location" value={SITE.location} href="#" />
+          <ContactLink icon={Linkedin} label="LinkedIn" value="LinkedIn profile" href={SITE.linkedin} />
         </aside>
       </div>
       <style>{`

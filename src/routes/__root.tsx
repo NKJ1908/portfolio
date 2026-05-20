@@ -63,9 +63,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Alex Mensah — Software Developer & Tech Entrepreneur" },
-      { name: "description", content: "Portfolio of Alex Mensah, software developer building calm, precise web applications and digital systems." },
-      { property: "og:title", content: "Alex Mensah — Software Developer" },
+      { title: "Jean N'TCHOUGAN — Software Developer & Tech Entrepreneur" },
+      { name: "description", content: "Portfolio of Jean N'TCHOUGAN, software developer building calm, precise web applications and digital systems." },
+      { property: "og:title", content: "Jean N'TCHOUGAN — Software Developer" },
       { property: "og:description", content: "Web applications, APIs, dashboards. Clean architecture with serious craft." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

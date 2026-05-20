@@ -32,18 +32,18 @@ export function Hero() {
               <Mail size={16} /> Contact Me
             </Link>
           </div>
-          <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
-            {[
-              { k: "6+", v: "Years building" },
-              { k: "40+", v: "Shipped projects" },
-              { k: "12", v: "Countries served" },
-            ].map((s) => (
-              <div key={s.v}>
-                <dt className="text-2xl font-semibold">{s.k}</dt>
-                <dd className="text-xs text-muted mt-1">{s.v}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
+            <span className="inline-flex items-center gap-2">
+              <span className="size-1.5 rounded-full bg-white/60" />
+              {SITE.location}
+            </span>
+            <a href={`mailto:${SITE.email}`} className="hover:text-foreground transition-colors">
+              {SITE.email}
+            </a>
+            <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-foreground transition-colors">
+              {SITE.phone}
+            </a>
+          </div>
         </div>
         <div className="md:col-span-5 order-1 md:order-2 fade-in-up">
           <div className="relative">

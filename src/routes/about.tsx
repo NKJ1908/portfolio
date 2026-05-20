@@ -4,22 +4,16 @@ import { Section } from "@/components/Section";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Alex Mensah" },
+      { title: "About — Jean N'TCHOUGAN" },
       { name: "description", content: "Developer mindset, clean architecture, performance and the path that got me here." },
-      { property: "og:title", content: "About — Alex Mensah" },
-      { property: "og:description", content: "Developer mindset, architecture and career timeline." },
+      { property: "og:title", content: "About — Jean N'TCHOUGAN" },
+      { property: "og:description", content: "Developer mindset and architecture principles." },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
 
-const TIMELINE = [
-  { y: "2026", t: "Founded the agency", d: "Brought brand and engineering under one roof for select clients." },
-  { y: "2024", t: "Lead engineer roles", d: "Architected multi-tenant platforms in fintech and logistics." },
-  { y: "2022", t: "Senior software developer", d: "Full-stack delivery, design systems, observability." },
-  { y: "2020", t: "Started shipping for clients", d: "First production web apps. Learned discipline the hard way." },
-];
 
 function About() {
   return (
@@ -46,18 +40,6 @@ function About() {
         </div>
       </Section>
 
-      <Section eyebrow="Path" title="Career timeline.">
-        <ol className="relative border-l border-border pl-8 space-y-10">
-          {TIMELINE.map((s) => (
-            <li key={s.y} className="relative">
-              <span className="absolute -left-[37px] top-1.5 size-2.5 rounded-full bg-white" />
-              <div className="text-xs text-muted uppercase tracking-[0.18em]">{s.y}</div>
-              <h3 className="mt-1 font-medium">{s.t}</h3>
-              <p className="mt-1 text-sm text-muted leading-relaxed max-w-2xl">{s.d}</p>
-            </li>
-          ))}
-        </ol>
-      </Section>
     </>
   );
 }

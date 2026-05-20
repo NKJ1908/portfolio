@@ -1,11 +1,14 @@
 export const SITE = {
-  name: "Alex Mensah",
+  name: "Jean N'TCHOUGAN",
   role: "Software Developer & Tech Entrepreneur",
   tagline: "I build calm, precise software.",
   intro:
     "Software developer focused on web applications, clean architecture and reliable systems. Founder of a digital agency delivering branding alongside engineering.",
-  email: "hello@example.com",
-  whatsapp: "+1 555 010 0199",
+  email: "jeandzoko@gmail.com",
+  phone: "+228 97 80 24 60",
+  whatsapp: "+228 97 80 24 60",
+  whatsappAlt: "+228 70 99 59 62",
+  location: "Lomé, Togo",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
 };
