@@ -4,10 +4,10 @@ import { Section } from "@/components/Section";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Alex Mensah" },
+      { title: "About — Jean N'TCHOUGAN" },
       { name: "description", content: "Developer mindset, clean architecture, performance and the path that got me here." },
-      { property: "og:title", content: "About — Alex Mensah" },
-      { property: "og:description", content: "Developer mindset, architecture and career timeline." },
+      { property: "og:title", content: "About — Jean N'TCHOUGAN" },
+      { property: "og:description", content: "Developer mindset and architecture principles." },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
