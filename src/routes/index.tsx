@@ -7,11 +7,12 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { PERSONAL_SERVICES, AGENCY_SERVICES } from "@/data/services";
 import { PROJECTS } from "@/data/projects";
 import { SKILL_GROUPS } from "@/data/skills";
+import { useT } from "@/i18n/LanguageProvider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Alex Mensah — Software Developer & Tech Entrepreneur" },
+      { title: "Jean N'TCHOUGAN — Software Developer & Tech Entrepreneur" },
       { name: "description", content: "Software developer specializing in web applications, APIs and dashboards. Founder of a digital agency." },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { t } = useT();
   const featured = PROJECTS.slice(0, 3);
   return (
     <>
@@ -27,15 +29,15 @@ function Home() {
 
       <Section
         id="about"
-        eyebrow="About"
-        title="A calm operator with engineering discipline."
-        description="I build software the way good systems are built: deliberately, with clean boundaries, observable behavior and a bias toward simplicity. Every project earns its complexity."
+        eyebrow={t("home.aboutEyebrow")}
+        title={t("home.aboutTitle")}
+        description={t("home.aboutDesc")}
       >
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { t: "Clean architecture", d: "Boundaries that survive feature pressure and team growth." },
-            { t: "Performance focus", d: "Measured, profiled, and tuned — not assumed." },
-            { t: "Problem solving", d: "Understand the constraint before reaching for a tool." },
+            { t: t("home.pillar1.t"), d: t("home.pillar1.d") },
+            { t: t("home.pillar2.t"), d: t("home.pillar2.d") },
+            { t: t("home.pillar3.t"), d: t("home.pillar3.d") },
           ].map((b) => (
             <div key={b.t} className="card-surface p-6">
               <h3 className="font-medium">{b.t}</h3>
@@ -45,34 +47,38 @@ function Home() {
         </div>
         <div className="mt-10">
           <Link to="/about" className="text-sm inline-flex items-center gap-1 text-muted hover:text-foreground">
-            Read full background <ArrowRight size={14} />
+            {t("home.readBackground")} <ArrowRight size={14} />
           </Link>
         </div>
       </Section>
 
       <Section
         id="services"
-        eyebrow="Services"
-        title="Engineering, with an agency on the side."
-        description="My core work is software development. The agency handles brand and visual identity for teams that need both shipped together."
+        eyebrow={t("home.servicesEyebrow")}
+        title={t("home.servicesTitle")}
+        description={t("home.servicesDesc")}
       >
         <div className="space-y-12">
           <div>
             <div className="flex items-baseline justify-between mb-6">
-              <h3 className="text-lg font-medium">Personal — Development</h3>
-              <span className="text-xs text-muted uppercase tracking-[0.18em]">Primary</span>
+              <h3 className="text-lg font-medium">{t("home.personalDev")}</h3>
+              <span className="text-xs text-muted uppercase tracking-[0.18em]">{t("home.primary")}</span>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PERSONAL_SERVICES.map((s) => <ServiceCard key={s.title} {...s} />)}
+              {PERSONAL_SERVICES.map((s) => (
+                <ServiceCard key={s.titleKey} icon={s.icon} title={t(s.titleKey)} desc={t(s.descKey)} />
+              ))}
             </div>
           </div>
           <div>
             <div className="flex items-baseline justify-between mb-6">
-              <h3 className="text-lg font-medium">Agency — Brand & Design</h3>
-              <span className="text-xs text-muted uppercase tracking-[0.18em]">Studio</span>
+              <h3 className="text-lg font-medium">{t("home.agencyBrand")}</h3>
+              <span className="text-xs text-muted uppercase tracking-[0.18em]">{t("home.studio")}</span>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {AGENCY_SERVICES.map((s) => <ServiceCard key={s.title} {...s} />)}
+              {AGENCY_SERVICES.map((s) => (
+                <ServiceCard key={s.titleKey} icon={s.icon} title={t(s.titleKey)} desc={t(s.descKey)} />
+              ))}
             </div>
           </div>
         </div>
@@ -80,24 +86,24 @@ function Home() {
 
       <Section
         id="projects"
-        eyebrow="Selected work"
-        title="Recent projects."
-        description="A small selection. Each shipped to production for paying users or teams."
+        eyebrow={t("home.workEyebrow")}
+        title={t("home.projectsTitle")}
+        description={t("home.projectsDesc")}
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((p) => <ProjectCard key={p.slug} p={p} />)}
         </div>
         <div className="mt-10">
           <Link to="/projects" className="text-sm inline-flex items-center gap-1 text-muted hover:text-foreground">
-            See all projects <ArrowRight size={14} />
+            {t("home.seeAll")} <ArrowRight size={14} />
           </Link>
         </div>
       </Section>
 
       <Section
         id="skills"
-        eyebrow="Stack"
-        title="Tools I reach for."
+        eyebrow={t("home.stackEyebrow")}
+        title={t("home.stackTitle")}
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SKILL_GROUPS.map((g) => (
@@ -115,15 +121,15 @@ function Home() {
 
       <Section
         id="cta"
-        eyebrow="Next step"
-        title="Have a system to build?"
-        description="Tell me about the problem. I'll respond with whether — and how — I can help."
+        eyebrow={t("home.ctaEyebrow")}
+        title={t("home.ctaTitle")}
+        description={t("home.ctaDesc")}
       >
         <Link
           to="/contact"
           className="inline-flex items-center gap-2 bg-white text-[#0A192F] px-5 py-3 rounded-md text-sm font-medium hover:bg-white/90"
         >
-          Start a conversation <ArrowRight size={16} />
+          {t("home.ctaButton")} <ArrowRight size={16} />
         </Link>
       </Section>
     </>

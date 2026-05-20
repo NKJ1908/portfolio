@@ -2,14 +2,16 @@ import { createFileRoute, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Section } from "@/components/Section";
 import { ProjectCard } from "@/components/ProjectCard";
-import { PROJECTS, PROJECT_CATEGORIES } from "@/data/projects";
+import { PROJECTS, PROJECT_CATEGORIES, type ProjectCategory } from "@/data/projects";
+import { useT } from "@/i18n/LanguageProvider";
+import type { dict } from "@/i18n/translations";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Alex Mensah" },
+      { title: "Projects — Jean N'TCHOUGAN" },
       { name: "description", content: "Selected web applications, dashboards, SaaS and APIs shipped to production." },
-      { property: "og:title", content: "Projects — Alex Mensah" },
+      { property: "og:title", content: "Projects — Jean N'TCHOUGAN" },
       { property: "og:description", content: "A selection of shipped software." },
     ],
     links: [{ rel: "canonical", href: "/projects" }],
@@ -17,19 +19,29 @@ export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
 });
 
+const CAT_KEY: Record<(typeof PROJECT_CATEGORIES)[number], keyof typeof dict> = {
+  All: "projects.cat.all",
+  SaaS: "projects.cat.SaaS",
+  "Web Apps": "projects.cat.WebApps",
+  Dashboards: "projects.cat.Dashboards",
+  APIs: "projects.cat.APIs",
+};
+
 function ProjectsPage() {
+  const { t } = useT();
   const matchRoute = useMatchRoute();
   const isChild = matchRoute({ to: "/projects/$slug" });
+  const [filter, setFilter] = useState<(typeof PROJECT_CATEGORIES)[number]>("All");
   if (isChild) return <Outlet />;
 
-  const [filter, setFilter] = useState<(typeof PROJECT_CATEGORIES)[number]>("All");
-  const list = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  const list =
+    filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === (filter as ProjectCategory));
 
   return (
     <Section
-      eyebrow="Work"
-      title="Projects."
-      description="Filter by domain. Each card opens a brief project page."
+      eyebrow={t("projects.eyebrow")}
+      title={t("projects.title")}
+      description={t("projects.desc")}
     >
       <div className="flex flex-wrap gap-2 mb-8">
         {PROJECT_CATEGORIES.map((c) => (
@@ -42,7 +54,7 @@ function ProjectsPage() {
                 : "border-border text-muted hover:text-foreground"
             }`}
           >
-            {c}
+            {t(CAT_KEY[c])}
           </button>
         ))}
       </div>
