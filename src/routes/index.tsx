@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { Section } from "@/components/Section";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProjectCard } from "@/components/ProjectCard";
-import { PERSONAL_SERVICES, AGENCY_SERVICES } from "@/data/services";
+import { PERSONAL_SERVICES } from "@/data/services";
 import { PROJECTS } from "@/data/projects";
 import { SKILL_GROUPS } from "@/data/skills";
 import { useT } from "@/i18n/LanguageProvider";
@@ -12,8 +12,8 @@ import { useT } from "@/i18n/LanguageProvider";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jean N'TCHOUGAN — Software Developer & Tech Entrepreneur" },
-      { name: "description", content: "Software developer specializing in web applications, APIs and dashboards. Founder of a digital agency." },
+      { title: "Jean N'TCHOUGAN — Software Developer" },
+      { name: "description", content: "Software developer specializing in web applications, APIs and dashboards." },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -58,29 +58,10 @@ function Home() {
         title={t("home.servicesTitle")}
         description={t("home.servicesDesc")}
       >
-        <div className="space-y-12">
-          <div>
-            <div className="flex items-baseline justify-between mb-6">
-              <h3 className="text-lg font-medium">{t("home.personalDev")}</h3>
-              <span className="text-xs text-muted uppercase tracking-[0.18em]">{t("home.primary")}</span>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PERSONAL_SERVICES.map((s) => (
-                <ServiceCard key={s.titleKey} icon={s.icon} title={t(s.titleKey)} desc={t(s.descKey)} />
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="flex items-baseline justify-between mb-6">
-              <h3 className="text-lg font-medium">{t("home.agencyBrand")}</h3>
-              <span className="text-xs text-muted uppercase tracking-[0.18em]">{t("home.studio")}</span>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {AGENCY_SERVICES.map((s) => (
-                <ServiceCard key={s.titleKey} icon={s.icon} title={t(s.titleKey)} desc={t(s.descKey)} />
-              ))}
-            </div>
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {PERSONAL_SERVICES.map((s) => (
+            <ServiceCard key={s.titleKey} icon={s.icon} title={t(s.titleKey)} desc={t(s.descKey)} />
+          ))}
         </div>
       </Section>
 
