@@ -9,8 +9,8 @@ export const SITE = {
   whatsapp: "+228 97 80 24 60",
   whatsappAlt: "+228 70 99 59 62",
   location: "Lomé, Togo",
-  github: "https://github.com",
-  linkedin: "https://linkedin.com",
+  github: "https://github.com/NKJ1908",
+  linkedin: "https://www.linkedin.com/in/jean-n-tchougan",
 };
 
 export const NAV = [

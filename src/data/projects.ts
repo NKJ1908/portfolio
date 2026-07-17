@@ -1,4 +1,4 @@
-export type ProjectCategory = "SaaS" | "Web Apps" | "Dashboards" | "APIs";
+export type ProjectCategory = "Web Apps" | "E-commerce" | "Mobile" | "Websites";
 
 export type Project = {
   slug: string;
@@ -14,65 +14,51 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "ledger-saas",
-    title: "Ledger — Finance SaaS",
-    titleFr: "Ledger — SaaS financier",
-    summary: "Multi-tenant accounting platform with real-time reporting and granular role-based access.",
-    summaryFr: "Plateforme comptable multi-tenant avec reporting en temps réel et contrôle d'accès granulaire par rôle.",
-    category: "SaaS",
-    stack: ["React", "TypeScript", "Node", "PostgreSQL"],
-    demo: "#", github: "#",
+    slug: "anuba",
+    title: "ANUBA — Industrial & Auto Parts App",
+    titleFr: "ANUBA — App de pièces industrielles & auto",
+    summary:
+      "Mobile app to request quotes and order industrial or automotive parts from a reference or a photo. Available on the Play Store.",
+    summaryFr:
+      "Application mobile pour demander un devis et commander des pièces industrielles ou automobiles à partir d'une référence ou d'une photo. Disponible sur le Play Store.",
+    category: "Mobile",
+    stack: ["Flutter", "Dart", "Google AppScript"],
   },
   {
-    slug: "atlas-dashboard",
-    title: "Atlas Ops Dashboard",
-    titleFr: "Atlas — Tableau de bord opérations",
-    summary: "Operations dashboard consolidating logistics KPIs across 12 warehouses.",
-    summaryFr: "Tableau de bord opérationnel consolidant les KPI logistiques de 12 entrepôts.",
-    category: "Dashboards",
-    stack: ["Next.js", "tRPC", "Prisma", "Recharts"],
-    demo: "#", github: "#",
+    slug: "keinagroup",
+    title: "KEINAGROUP — Corporate site & e-commerce",
+    titleFr: "KEINAGROUP — Site vitrine & e-commerce",
+    summary:
+      "Corporate website and e-commerce platform presenting the company's activities and services.",
+    summaryFr:
+      "Site web d'entreprise et plateforme e-commerce présentant les activités et services de la société.",
+    category: "E-commerce",
+    stack: ["React", "Node.js", "Express", "Odoo"],
+    demo: "https://www.keinagroup.com",
   },
   {
-    slug: "north-api",
-    title: "North Payments API",
-    titleFr: "North — API de paiement",
-    summary: "Idempotent payments API with webhook delivery, retries and signed receipts.",
-    summaryFr: "API de paiement idempotente avec livraison de webhooks, retries et reçus signés.",
-    category: "APIs",
-    stack: ["Go", "Postgres", "Redis", "OpenAPI"],
-    github: "#",
+    slug: "aniek-ayo",
+    title: "ANIEK & AYO — Corporate site & e-commerce",
+    titleFr: "ANIEK & AYO — Site vitrine & e-commerce",
+    summary:
+      "Corporate website with e-commerce capabilities, content managed and customized through Odoo.",
+    summaryFr:
+      "Site vitrine avec fonctionnalités e-commerce, contenu géré et personnalisé via Odoo.",
+    category: "E-commerce",
+    stack: ["Odoo Website Builder"],
+    demo: "https://www.aniekgroup.com",
   },
   {
-    slug: "studio-cms",
-    title: "Studio CMS",
-    titleFr: "Studio CMS",
-    summary: "Headless CMS for editorial teams with content versioning and preview workflows.",
-    summaryFr: "CMS headless pour équipes éditoriales, avec versioning de contenu et workflows de prévisualisation.",
-    category: "Web Apps",
-    stack: ["React", "Hono", "SQLite", "Cloudflare"],
-    demo: "#",
-  },
-  {
-    slug: "pulse-monitor",
-    title: "Pulse Uptime Monitor",
-    titleFr: "Pulse — Surveillance d'uptime",
-    summary: "Distributed probes with anomaly detection and SLO-aware alerting.",
-    summaryFr: "Sondes distribuées avec détection d'anomalies et alertes pilotées par SLO.",
-    category: "SaaS",
-    stack: ["TypeScript", "Workers", "Clickhouse"],
-    demo: "#", github: "#",
-  },
-  {
-    slug: "merchant-portal",
-    title: "Merchant Portal",
-    titleFr: "Portail marchand",
-    summary: "Self-serve portal for B2B merchants: invoicing, disputes, payouts.",
-    summaryFr: "Portail en libre-service pour marchands B2B : facturation, litiges, paiements.",
-    category: "Web Apps",
-    stack: ["React", "GraphQL", "PostgreSQL"],
-    demo: "#",
+    slug: "kbs-construct",
+    title: "KBS Construct — Corporate site",
+    titleFr: "KBS Construct — Site vitrine",
+    summary:
+      "Corporate website for a Belgium-based construction company, built with a modern React stack.",
+    summaryFr:
+      "Site vitrine pour une entreprise de construction basée en Belgique, construit avec une stack React moderne.",
+    category: "Websites",
+    stack: ["React", "Next.js", "Tailwind CSS"],
   },
 ];
 
-export const PROJECT_CATEGORIES = ["All", "SaaS", "Web Apps", "Dashboards", "APIs"] as const;
+export const PROJECT_CATEGORIES = ["All", "Web Apps", "E-commerce", "Mobile", "Websites"] as const;

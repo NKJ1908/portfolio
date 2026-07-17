@@ -150,10 +150,10 @@ export const dict: Dict = {
   "projects.title": { en: "Projects.", fr: "Projets." },
   "projects.desc": { en: "Filter by domain. Each card opens a brief project page.", fr: "Filtrer par domaine. Chaque carte ouvre une fiche projet." },
   "projects.cat.all": { en: "All", fr: "Tous" },
-  "projects.cat.SaaS": { en: "SaaS", fr: "SaaS" },
   "projects.cat.WebApps": { en: "Web Apps", fr: "Applications web" },
-  "projects.cat.Dashboards": { en: "Dashboards", fr: "Tableaux de bord" },
-  "projects.cat.APIs": { en: "APIs", fr: "APIs" },
+  "projects.cat.Ecom": { en: "E-commerce", fr: "E-commerce" },
+  "projects.cat.Mobile": { en: "Mobile", fr: "Mobile" },
+  "projects.cat.Websites": { en: "Websites", fr: "Sites vitrine" },
 
   // Project detail
   "pd.back": { en: "All projects", fr: "Tous les projets" },

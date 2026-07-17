@@ -1,8 +1,8 @@
 export const SKILL_GROUPS = [
-  { title: "Languages",   items: ["TypeScript", "JavaScript", "Go", "Python", "SQL"] },
-  { title: "Frontend",    items: ["React", "Next.js", "Vite", "TanStack", "Tailwind CSS", "Framer Motion"] },
-  { title: "Backend",     items: ["Node.js", "Hono", "tRPC", "GraphQL", "REST", "WebSockets"] },
-  { title: "Databases",   items: ["PostgreSQL", "Redis", "SQLite", "Clickhouse", "Prisma"] },
-  { title: "Infrastructure", items: ["Docker", "Cloudflare", "Vercel", "AWS", "GitHub Actions"] },
-  { title: "Practices",   items: ["Clean Architecture", "TDD", "Code Review", "Observability", "DDD"] },
+  { title: "Frontend",   items: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "React", "Tailwind CSS", "Bootstrap"] },
+  { title: "Backend",    items: ["Node.js", "Express.js", "REST APIs", "Authentication & Security"] },
+  { title: "Mobile",     items: ["Flutter", "Dart"] },
+  { title: "Databases",  items: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Prisma"] },
+  { title: "Tools & DevOps", items: ["Git", "GitHub", "Docker", "Linux", "Vercel", "Render"] },
+  { title: "Platforms",  items: ["Odoo"] },
 ];
