@@ -89,7 +89,7 @@ export const dict: Dict = {
     en: "I build production software for teams that value craft. My focus is web applications, APIs and dashboards with clean architecture and honest performance.",
     fr: "Je conçois des logiciels en production pour des équipes qui valorisent le métier. Mon focus : applications web, APIs et tableaux de bord, avec une architecture propre et une performance honnête.",
   },
-  "footer.roleValue": { en: "Software Developer", fr: "Développeur logiciel" },
+  
   "about.card1.t": { en: "Developer mindset", fr: "Mentalité de développeur" },
   "about.card1.d": { en: "I treat code as a long-term liability. The right abstraction beats clever code every time.", fr: "Je traite le code comme un passif de long terme. La bonne abstraction l'emporte toujours sur le code malin." },
   "about.card2.t": { en: "Clean architecture", fr: "Architecture propre" },
