@@ -24,8 +24,8 @@ export const dict: Dict = {
   "hero.titleB": { en: "calm, precise", fr: "calmes et précis" },
   "hero.titleC": { en: "web systems.", fr: "." },
   "hero.intro": {
-    en: "Software developer focused on web applications, clean architecture and reliable systems. Founder of a digital agency delivering branding alongside engineering.",
-    fr: "Développeur logiciel spécialisé dans les applications web, l'architecture propre et les systèmes fiables. Fondateur d'une agence digitale qui livre l'identité de marque en complément de l'ingénierie.",
+    en: "Software developer focused on web applications, clean architecture and reliable systems.",
+    fr: "Développeur logiciel spécialisé dans les applications web, l'architecture propre et les systèmes fiables.",
   },
   "hero.viewProjects": { en: "View Projects", fr: "Voir les projets" },
   "hero.contactMe": { en: "Contact Me", fr: "Me contacter" },
@@ -50,12 +50,12 @@ export const dict: Dict = {
 
   // Home — Services
   "home.servicesEyebrow": { en: "Services", fr: "Services" },
-  "home.servicesTitle": { en: "Engineering, with an agency on the side.", fr: "L'ingénierie, et une agence en complément." },
+  "home.servicesTitle": { en: "Engineering, end to end.", fr: "L'ingénierie, de bout en bout." },
   "home.servicesDesc": {
-    en: "My core work is software development. The agency handles brand and visual identity for teams that need both shipped together.",
-    fr: "Mon cœur de métier reste le développement logiciel. L'agence prend en charge la marque et l'identité visuelle pour les équipes qui veulent les deux livrés ensemble.",
+    en: "Web applications, APIs, dashboards and integrations — built with clean architecture and honest performance.",
+    fr: "Applications web, APIs, tableaux de bord et intégrations — construits avec une architecture propre et une performance honnête.",
   },
-  "home.personalDev": { en: "Personal — Development", fr: "Personnel — Développement" },
+  "home.personalDev": { en: "Development", fr: "Développement" },
   "home.primary": { en: "Primary", fr: "Principal" },
   "home.agencyBrand": { en: "Agency — Brand & Design", fr: "Agence — Marque & Design" },
   "home.studio": { en: "Studio", fr: "Studio" },
@@ -84,11 +84,12 @@ export const dict: Dict = {
 
   // About
   "about.eyebrow": { en: "About", fr: "À propos" },
-  "about.title": { en: "Engineer first. Operator second.", fr: "Ingénieur d'abord. Opérateur ensuite." },
+  "about.title": { en: "Engineer, focused on the craft.", fr: "Ingénieur, concentré sur le métier." },
   "about.desc": {
     en: "I build production software for teams that value craft. My focus is web applications, APIs and dashboards with clean architecture and honest performance.",
     fr: "Je conçois des logiciels en production pour des équipes qui valorisent le métier. Mon focus : applications web, APIs et tableaux de bord, avec une architecture propre et une performance honnête.",
   },
+  "footer.roleValue": { en: "Software Developer", fr: "Développeur logiciel" },
   "about.card1.t": { en: "Developer mindset", fr: "Mentalité de développeur" },
   "about.card1.d": { en: "I treat code as a long-term liability. The right abstraction beats clever code every time.", fr: "Je traite le code comme un passif de long terme. La bonne abstraction l'emporte toujours sur le code malin." },
   "about.card2.t": { en: "Clean architecture", fr: "Architecture propre" },
@@ -195,7 +196,7 @@ export const dict: Dict = {
   "contact.linkedinValue": { en: "LinkedIn profile", fr: "Profil LinkedIn" },
 
   // Footer
-  "footer.role": { en: "Software Developer & Tech Entrepreneur", fr: "Développeur logiciel & entrepreneur tech" },
+  "footer.role": { en: "Software Developer", fr: "Développeur logiciel" },
   "footer.rights": { en: "All rights reserved.", fr: "Tous droits réservés." },
   "footer.built": { en: "Built with intent.", fr: "Conçu avec intention." },
 

@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Jean N'TCHOUGAN",
-  role: "Software Developer & Tech Entrepreneur",
+  role: "Software Developer",
   tagline: "I build calm, precise software.",
   intro:
-    "Software developer focused on web applications, clean architecture and reliable systems. Founder of a digital agency delivering branding alongside engineering.",
+    "Software developer focused on web applications, clean architecture and reliable systems.",
   email: "jeandzoko@gmail.com",
   phone: "+228 97 80 24 60",
   whatsapp: "+228 97 80 24 60",
