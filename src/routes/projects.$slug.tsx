@@ -6,10 +6,10 @@ import { useT } from "@/i18n/LanguageProvider";
 import type { dict } from "@/i18n/translations";
 
 const CAT_KEY: Record<Project["category"], keyof typeof dict> = {
-  SaaS: "projects.cat.SaaS",
   "Web Apps": "projects.cat.WebApps",
-  Dashboards: "projects.cat.Dashboards",
-  APIs: "projects.cat.APIs",
+  "E-commerce": "projects.cat.Ecom",
+  Mobile: "projects.cat.Mobile",
+  Websites: "projects.cat.Websites",
 };
 
 export const Route = createFileRoute("/projects/$slug")({
