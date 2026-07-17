@@ -21,10 +21,10 @@ export const Route = createFileRoute("/projects")({
 
 const CAT_KEY: Record<(typeof PROJECT_CATEGORIES)[number], keyof typeof dict> = {
   All: "projects.cat.all",
-  SaaS: "projects.cat.SaaS",
   "Web Apps": "projects.cat.WebApps",
-  Dashboards: "projects.cat.Dashboards",
-  APIs: "projects.cat.APIs",
+  "E-commerce": "projects.cat.Ecom",
+  Mobile: "projects.cat.Mobile",
+  Websites: "projects.cat.Websites",
 };
 
 function ProjectsPage() {
