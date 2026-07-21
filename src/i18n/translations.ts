@@ -190,10 +190,12 @@ export const dict: Dict = {
   "contact.send": { en: "Send message", fr: "Envoyer le message" },
   "contact.sent": { en: "Thanks — I'll be in touch shortly.", fr: "Merci — je reviens vers vous rapidement." },
   "contact.label.email": { en: "Email", fr: "Email" },
-  "contact.label.whatsapp": { en: "WhatsApp", fr: "WhatsApp" },
+  "contact.label.whatsapp": { en: "WhatsApp", fr: "? "WhatsApp" },
   "contact.label.phoneAlt": { en: "Phone (alt)", fr: "Téléphone (alt.)" },
   "contact.label.location": { en: "Location", fr: "Localisation" },
   "contact.label.linkedin": { en: "LinkedIn", fr: "LinkedIn" },
+  "contact.label.cv": { en: "Resume", fr: "CV" },
+  "contact.cvValue": { en: "Download PDF", fr: "Télécharger le PDF" },
   "contact.linkedinValue": { en: "LinkedIn profile", fr: "Profil LinkedIn" },
 
   // Footer

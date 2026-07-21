@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Github, Linkedin, Mail, MessageCircle, MapPin, Send } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MessageCircle, MapPin, Send } from "lucide-react";
 import { Section } from "@/components/Section";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";
