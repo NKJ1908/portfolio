@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Github, Linkedin, Mail, MessageCircle, MapPin, Send } from "lucide-react";
+import { Download, Github, Linkedin, Mail, MessageCircle, MapPin, Send } from "lucide-react";
 import { Section } from "@/components/Section";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";
@@ -55,6 +55,15 @@ function Contact() {
           <ContactLink icon={MessageCircle} label={t("contact.label.phoneAlt")} value={SITE.whatsappAlt} href={`tel:${SITE.whatsappAlt.replace(/\s/g, "")}`} />
           <ContactLink icon={MapPin} label={t("contact.label.location")} value={SITE.location} href="#" />
           <ContactLink icon={Linkedin} label={t("contact.label.linkedin")} value={t("contact.linkedinValue")} href={SITE.linkedin} />
+          <a href="/cv.pdf" download className="card-surface p-5 flex items-center gap-4 hover:border-white/20 transition-colors">
+            <div className="size-10 rounded-md border border-border flex items-center justify-center">
+              <Download size={16} />
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-[0.18em] text-muted">{t("contact.label.cv")}</div>
+              <div className="text-sm mt-0.5">{t("contact.cvValue")}</div>
+            </div>
+          </a>
           <a href={SITE.github} className="hidden"><Github size={14} /></a>
         </aside>
       </div>

@@ -29,6 +29,7 @@ export const dict: Dict = {
   },
   "hero.viewProjects": { en: "View Projects", fr: "Voir les projets" },
   "hero.contactMe": { en: "Contact Me", fr: "Me contacter" },
+  "hero.downloadCV": { en: "Download CV", fr: "Télécharger mon CV" },
 
   // Home — About
   "home.aboutEyebrow": { en: "About", fr: "À propos" },
@@ -193,6 +194,8 @@ export const dict: Dict = {
   "contact.label.phoneAlt": { en: "Phone (alt)", fr: "Téléphone (alt.)" },
   "contact.label.location": { en: "Location", fr: "Localisation" },
   "contact.label.linkedin": { en: "LinkedIn", fr: "LinkedIn" },
+  "contact.label.cv": { en: "Resume", fr: "CV" },
+  "contact.cvValue": { en: "Download PDF", fr: "Télécharger le PDF" },
   "contact.linkedinValue": { en: "LinkedIn profile", fr: "Profil LinkedIn" },
 
   // Footer
