@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import portrait from "@/assets/portrait.png";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";

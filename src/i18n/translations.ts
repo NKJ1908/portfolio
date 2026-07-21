@@ -29,6 +29,7 @@ export const dict: Dict = {
   },
   "hero.viewProjects": { en: "View Projects", fr: "Voir les projets" },
   "hero.contactMe": { en: "Contact Me", fr: "Me contacter" },
+  "hero.downloadCV": { en: "Download CV", fr: "Télécharger mon CV" },
 
   // Home — About
   "home.aboutEyebrow": { en: "About", fr: "À propos" },
