@@ -42,6 +42,13 @@ export function Hero() {
             >
               <Mail size={16} /> {t("hero.contactMe")}
             </Link>
+            <a
+              href="/cv.pdf"
+              download
+              className="inline-flex items-center gap-2 border border-border px-5 py-3 rounded-md text-sm font-medium hover:bg-surface transition-colors"
+            >
+              <Download size={16} /> {t("hero.downloadCV")}
+            </a>
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
             <span className="inline-flex items-center gap-2">
