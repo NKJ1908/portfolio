@@ -96,7 +96,7 @@ export default function Home() {
         title={t("home.ctaTitle")}
         description={t("home.ctaDesc")}
       >
-        <Link to="/contact" className="btn btn-primary btn-soft">
+        <Link to="/contact" className="btn btn-primary">
           {t("home.ctaButton")} <ArrowRight size={16} />
         </Link>
       </Section>
