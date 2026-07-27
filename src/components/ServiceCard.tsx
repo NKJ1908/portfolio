@@ -1,8 +1,14 @@
 import type { LucideIcon } from "lucide-react";
 
 export function ServiceCard({
-  icon: Icon, title, desc,
-}: { icon: LucideIcon; title: string; desc: string }) {
+  icon: Icon,
+  title,
+  desc,
+}: {
+  icon: LucideIcon;
+  title: string;
+  desc: string;
+}) {
   return (
     <div className="card-surface p-6 hover:border-white/20 transition-colors">
       <Icon size={20} className="text-white" />

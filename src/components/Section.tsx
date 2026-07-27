@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useReveal } from "@/hooks/use-reveal";
 
 type Props = {
   id?: string;
@@ -10,10 +11,11 @@ type Props = {
 };
 
 export function Section({ id, eyebrow, title, description, children, className = "" }: Props) {
+  const { ref, isVisible } = useReveal<HTMLElement>();
   return (
-    <section id={id} className={`py-20 md:py-28 ${className}`}>
+    <section ref={ref} id={id} className={`py-20 md:py-28 ${className}`}>
       <div className="container-x">
-        <div className="max-w-2xl mb-12 md:mb-16 fade-in-up">
+        <div className={`reveal max-w-2xl mb-12 md:mb-16 ${isVisible ? "is-visible" : ""}`}>
           {eyebrow && (
             <div className="text-xs uppercase tracking-[0.2em] text-muted mb-3">{eyebrow}</div>
           )}
@@ -22,7 +24,7 @@ export function Section({ id, eyebrow, title, description, children, className =
             <p className="mt-4 text-muted text-base md:text-lg leading-relaxed">{description}</p>
           )}
         </div>
-        {children}
+        <div className={`reveal-stagger ${isVisible ? "is-visible" : ""}`}>{children}</div>
       </div>
     </section>
   );

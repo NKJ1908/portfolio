@@ -44,13 +44,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       if (!entry) return String(key);
       return entry[lang] ?? entry.en;
     },
-    [lang]
+    [lang],
   );
 
   const value = useMemo(() => ({ lang, setLang, t }), [lang, setLang, t]);
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useT() {
   const ctx = useContext(LanguageContext);
   if (!ctx) throw new Error("useT must be used within LanguageProvider");

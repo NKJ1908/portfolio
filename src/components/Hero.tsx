@@ -1,77 +1,83 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Download, Mail } from "lucide-react";
-import portrait from "@/assets/portrait.png";
+import { Link } from "react-router-dom";
+import { ArrowRight, Mail } from "lucide-react";
+
+import portrait from "@/assets/portrait.jpg";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
   const { t, lang } = useT();
+
   return (
-    <section className="pt-16 md:pt-24 pb-20 md:pb-28">
-      <div className="container-x grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-        <div className="md:col-span-7 order-2 md:order-1 fade-in-up">
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted mb-6">
-            <span className="size-1.5 rounded-full bg-white" />
-            {t("hero.available")}
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05]">
-            {lang === "fr" ? (
-              <>
-                Développeur logiciel concevant des systèmes web{" "}
-                <span className="text-muted">calmes et précis</span>.
-              </>
-            ) : (
-              <>
-                Software developer building <span className="text-muted">calm, precise</span> web systems.
-              </>
-            )}
+    <section aria-labelledby="hero-title" className="pt-16 pb-20 md:pt-24 md:pb-28">
+      <div className="container-x grid items-center gap-12 md:grid-cols-12 md:gap-16">
+        {/* Hero Content */}
+        <div className="order-2 md:order-1 md:col-span-7">
+          <h1
+            id="hero-title"
+            className="hero-enter hero-enter-2 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-5xl"
+          >
+            {lang === "fr" ? <>{t("hero.title")}</> : <>{t("hero.title")}</>}
           </h1>
-          <p className="mt-6 text-muted text-lg leading-relaxed max-w-xl">
+
+          <p className="hero-enter hero-enter-3 mt-6 max-w-xl text-lg leading-relaxed text-muted">
             {t("hero.intro")}
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+
+          <div className="hero-enter hero-enter-4 mt-8 flex flex-wrap gap-3">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-2 bg-white text-[#0A192F] px-5 py-3 rounded-md text-sm font-medium hover:bg-white/90 transition-colors"
+              className="cta-button group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-medium text-[#0A192F] hover:bg-white/90"
             >
-              {t("hero.viewProjects")} <ArrowRight size={16} />
+              {t("hero.viewProjects")}
+              <ArrowRight
+                size={16}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-0.5"
+              />
             </Link>
+
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 rounded-md text-sm font-medium hover:bg-surface transition-colors"
+              className="cta-button inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium hover:bg-surface"
             >
-              <Mail size={16} /> {t("hero.contactMe")}
+              <Mail size={16} aria-hidden="true" />
+              {t("hero.contactMe")}
             </Link>
-            <a
-              href="/cv.pdf"
-              download
-              className="inline-flex items-center gap-2 border border-border px-5 py-3 rounded-md text-sm font-medium hover:bg-surface transition-colors"
-            >
-              <Download size={16} /> {t("hero.downloadCV")}
-            </a>
-          </div>
-          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
-            <span className="inline-flex items-center gap-2">
-              <span className="size-1.5 rounded-full bg-white/60" />
-              {SITE.location}
-            </span>
-            <a href={`mailto:${SITE.email}`} className="hover:text-foreground transition-colors">
-              {SITE.email}
-            </a>
-            <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-foreground transition-colors">
-              {SITE.phone}
-            </a>
           </div>
         </div>
-        <div className="md:col-span-5 order-1 md:order-2 fade-in-up">
-          <div className="relative">
-            <div className="absolute -inset-3 border border-border rounded-2xl" aria-hidden />
-            <img
-              src={portrait}
-              alt={`${SITE.name}, ${SITE.role}`}
-              className="relative w-full h-auto rounded-xl object-cover shadow-2xl shadow-black/40 ring-1 ring-border"
-              loading="eager"
+
+        {/* Hero Portrait */}
+        <div className="hero-portrait-enter order-1 md:order-2 md:col-span-5">
+          <div className="relative mx-auto max-w-md">
+            {/* Decorative Frame */}
+            <div
+              className="portrait-frame portrait-frame-outline absolute -inset-3 rounded-2xl border border-white/10"
+              aria-hidden="true"
             />
+
+            <div
+              className="portrait-frame portrait-frame-top absolute -left-2 -top-2 size-12 border-l border-t border-white/45"
+              aria-hidden="true"
+            />
+
+            <div
+              className="portrait-frame portrait-frame-bottom absolute -bottom-2 -right-2 size-12 border-b border-r border-white/45"
+              aria-hidden="true"
+            />
+
+            {/* Portrait */}
+            <div className="relative overflow-hidden rounded-xl border border-white/15 bg-[#0D1D34] p-2 shadow-2xl shadow-black/45">
+              <div className="overflow-hidden rounded-lg border border-border">
+                <img
+                  src={portrait}
+                  alt={`${SITE.name} — ${SITE.role}`}
+                  className="block h-auto w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

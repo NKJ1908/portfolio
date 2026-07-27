@@ -3,7 +3,7 @@ export const SITE = {
   role: "Software Developer",
   tagline: "I build calm, precise software.",
   intro:
-    "Software developer focused on web applications, clean architecture and reliable systems.",
+    "I build modern digital solutions, from user interfaces to backend architecture, with a strong focus on code quality and user experience.",
   email: "jeandzoko@gmail.com",
   phone: "+228 97 80 24 60",
   whatsapp: "+228 97 80 24 60",

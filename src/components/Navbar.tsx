@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { SITE } from "@/constants/site";
@@ -26,15 +26,16 @@ export function Navbar() {
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {items.map((n) => (
-            <Link
+            <NavLink
               key={n.to}
               to={n.to}
-              className="text-sm text-muted hover:text-foreground transition-colors"
-              activeProps={{ className: "text-sm text-foreground" }}
-              activeOptions={{ exact: n.exact }}
+              end={n.exact}
+              className={({ isActive }) =>
+                `nav-link text-sm ${isActive ? "is-active text-foreground" : "text-muted hover:text-foreground"}`
+              }
             >
               {n.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
@@ -47,7 +48,7 @@ export function Navbar() {
               <button
                 key={l.code}
                 onClick={() => setLang(l.code)}
-                className={`px-2.5 py-1.5 transition-colors ${
+                className={`px-2.5 py-1.5 transition-colors cursor-pointer ${
                   lang === l.code ? "bg-white text-[#0A192F]" : "text-muted hover:text-foreground"
                 }`}
                 aria-pressed={lang === l.code}
@@ -58,7 +59,7 @@ export function Navbar() {
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center px-4 py-2 text-sm border border-border rounded-md hover:bg-surface transition-colors"
+            className="inline-flex items-center px-4 py-2 text-sm border border-border rounded-md hover:bg-surface transition-colors cursor-pointer"
           >
             {t("nav.cta")}
           </Link>
@@ -75,16 +76,17 @@ export function Navbar() {
         <div className="md:hidden border-t border-border bg-background">
           <div className="container-x py-4 flex flex-col gap-3">
             {items.map((n) => (
-              <Link
+              <NavLink
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="text-sm text-muted hover:text-foreground py-1"
-                activeProps={{ className: "text-sm text-foreground py-1" }}
-                activeOptions={{ exact: n.exact }}
+                end={n.exact}
+                className={({ isActive }) =>
+                  `text-sm py-1 ${isActive ? "text-foreground" : "text-muted hover:text-foreground"}`
+                }
               >
                 {n.label}
-              </Link>
+              </NavLink>
             ))}
             <div className="flex items-center gap-2 pt-2 border-t border-border">
               {LANGS.map((l) => (

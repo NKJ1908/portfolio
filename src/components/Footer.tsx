@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";
@@ -27,22 +27,34 @@ export function Footer() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href={SITE.github} aria-label="GitHub" className="p-2 border border-border rounded-md hover:bg-surface">
+          <a
+            href={SITE.github}
+            aria-label="GitHub"
+            className="p-2 border border-border rounded-md hover:bg-surface"
+          >
             <Github size={16} />
           </a>
-          <a href={SITE.linkedin} aria-label="LinkedIn" className="p-2 border border-border rounded-md hover:bg-surface">
+          <a
+            href={SITE.linkedin}
+            aria-label="LinkedIn"
+            className="p-2 border border-border rounded-md hover:bg-surface"
+          >
             <Linkedin size={16} />
           </a>
-          <a href={`mailto:${SITE.email}`} aria-label="Email" className="p-2 border border-border rounded-md hover:bg-surface">
+          <a
+            href={`mailto:${SITE.email}`}
+            aria-label="Email"
+            className="p-2 border border-border rounded-md hover:bg-surface"
+          >
             <Mail size={16} />
           </a>
         </div>
       </div>
-      <div className="border-t border-border">
-        <div className="container-x py-5 text-xs text-muted flex justify-between">
-          <span>© {new Date().getFullYear()} {SITE.name}. {t("footer.rights")}</span>
-          <span>{t("footer.built")}</span>
-        </div>
+      <div className="container-x py-5 text-xs text-muted flex justify-between">
+        <span>
+          &copy; {new Date().getFullYear()} {t("footer.rights")}
+        </span>
+        <span>{t("footer.built")}</span>
       </div>
     </footer>
   );

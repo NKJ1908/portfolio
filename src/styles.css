@@ -1,5 +1,6 @@
 @import "tailwindcss" source(none);
 @source "../src";
+@plugin "daisyui";
 @import "tw-animate-css";
 
 @theme inline {
@@ -15,13 +16,13 @@
 }
 
 :root {
-  --background: #0A192F;
-  --foreground: #FFFFFF;
+  --background: #020917;
+  --foreground: #ffffff;
   --surface: #111827;
-  --border: #1E293B;
-  --muted: #94A3B8;
-  --primary: #FFFFFF;
-  --primary-foreground: #0A192F;
+  --border: #1e293b;
+  --muted: #94a3b8;
+  --primary: #ffffff;
+  --primary-foreground: #0a192f;
 }
 
 @layer base {
@@ -35,23 +36,198 @@
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "ss01", "cv11";
   }
-  * { border-color: var(--border); }
-  ::selection { background: #FFFFFF; color: #0A192F; }
-  h1,h2,h3,h4 { letter-spacing: -0.02em; }
+  * {
+    border-color: var(--border);
+  }
+  ::selection {
+    background: #ffffff;
+    color: #0a192f;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+  }
 }
 
 @layer utilities {
-  .container-x { max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
-  @media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
-  .fade-in-up { animation: fadeInUp 0.7s ease both; }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+  .container-x {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
   }
-  .hairline { border: 1px solid var(--border); }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+  .fade-in-up {
+    animation: fadeInUp 0.7s ease both;
+  }
+  .hero-enter {
+    animation: fadeInUp 0.6s ease both;
+  }
+  .hero-enter-1 {
+    animation-delay: 40ms;
+  }
+  .hero-enter-2 {
+    animation-delay: 100ms;
+  }
+  .hero-enter-3 {
+    animation-delay: 160ms;
+  }
+  .hero-enter-4 {
+    animation-delay: 220ms;
+  }
+  .hero-portrait-enter {
+    animation: fadeInUp 0.7s 140ms ease both;
+  }
+  .portrait-frame {
+    animation: frameIn 0.65s 260ms ease both;
+  }
+  .portrait-frame-top {
+    transform-origin: top left;
+  }
+  .portrait-frame-bottom {
+    transform-origin: bottom right;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 700ms ease,
+      transform 700ms ease;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 600ms ease,
+      transform 600ms ease;
+  }
+  .reveal-stagger.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-stagger.is-visible > *:nth-child(2) {
+    transition-delay: 80ms;
+  }
+  .reveal-stagger.is-visible > *:nth-child(3) {
+    transition-delay: 140ms;
+  }
+  .reveal-stagger.is-visible > *:nth-child(4) {
+    transition-delay: 200ms;
+  }
+  .cta-button {
+    transition:
+      transform 200ms ease,
+      background-color 200ms ease,
+      border-color 200ms ease;
+  }
+  .cta-button:hover {
+    transform: translateY(-2px);
+  }
+  .cta-button:focus-visible,
+  .project-link:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 3px;
+  }
+  .nav-link {
+    position: relative;
+    transition: color 180ms ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 180ms ease;
+  }
+  .nav-link.is-active::after {
+    transform: scaleX(1);
+  }
+  .project-card {
+    transition:
+      border-color 220ms ease,
+      transform 220ms ease,
+      box-shadow 220ms ease;
+  }
+  .project-card:hover {
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+  }
+  .project-link {
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease;
+  }
+  .project-link:hover {
+    transform: translateY(-1px);
+  }
+  .page-transition {
+    animation: pageIn 240ms ease both;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes frameIn {
+    from {
+      opacity: 0;
+      transform: scale(0.94);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes pageIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .hairline {
+    border: 1px solid var(--border);
+  }
   .card-surface {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
   }
 }
