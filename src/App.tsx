@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -134,6 +135,7 @@ export function App() {
 
         <Footer />
       </div>
+      <Analytics />
     </LanguageProvider>
   );
 }
