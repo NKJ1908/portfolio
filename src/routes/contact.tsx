@@ -122,7 +122,7 @@ export default function Contact() {
           />
 
           <a
-            href="/cv.pdf"
+            href="/Jean-N'TCHOUGAN.pdf"
             download
             className="card-surface group flex items-center gap-4 p-5 transition-transform hover:-translate-y-0.5"
           >
