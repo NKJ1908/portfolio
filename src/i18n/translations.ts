@@ -624,8 +624,8 @@ export const dict: Dict = {
   },
 
   "contact.project": {
-    en: "Project",
-    fr: "Projet",
+    en: "Subject",
+    fr: "Sujet",
   },
   "contact.projectPh": {
     en: "Brief subject",

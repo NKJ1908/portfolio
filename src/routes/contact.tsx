@@ -6,8 +6,14 @@ import { useT } from "@/i18n/LanguageProvider";
 
 export default function Contact() {
   const { t } = useT();
+
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   const inputClass =
     "input input-bordered w-full bg-transparent transition-colors focus:border-primary focus:outline-none";
@@ -16,13 +22,39 @@ export default function Contact() {
     event.preventDefault();
 
     setSending(true);
+    setSent(false);
 
-    // TODO: Connect this form to your backend or email service.
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await fetch("https://mailer-ww17.onrender.com/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+        }),
+      });
 
-    setSending(false);
-    setSent(true);
-    event.currentTarget.reset();
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Une erreur est survenue.");
+      }
+
+      setSent(true);
+
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } catch (error) {
+      console.error("Erreur lors de l'envoi :", error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -41,6 +73,8 @@ export default function Contact() {
               placeholder={t("contact.namePh")}
               inputClass={inputClass}
               required
+              value={name}
+              onChange={(event) => setName(event.target.value)}
             />
 
             <FormField
@@ -50,13 +84,17 @@ export default function Contact() {
               inputClass={inputClass}
               type="email"
               required
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
 
             <FormField
-              id="project"
+              id="subject"
               label={t("contact.project")}
               placeholder={t("contact.projectPh")}
               inputClass={inputClass}
+              value={subject}
+              onChange={(event) => setSubject(event.target.value)}
             />
 
             <div className="form-control">
@@ -69,6 +107,8 @@ export default function Contact() {
                 name="message"
                 required
                 rows={6}
+                value={message}
+                onChange={(event) => setMessage(event.target.value)}
                 className={`${inputClass} h-auto resize-none py-3`}
                 placeholder={t("contact.messagePh")}
               />
@@ -151,6 +191,8 @@ function FormField({
   inputClass,
   type = "text",
   required = false,
+  value,
+  onChange,
 }: {
   id: string;
   label: string;
@@ -158,6 +200,8 @@ function FormField({
   inputClass: string;
   type?: string;
   required?: boolean;
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div className="form-control">
@@ -172,6 +216,8 @@ function FormField({
         required={required}
         className={inputClass}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
       />
     </div>
   );
