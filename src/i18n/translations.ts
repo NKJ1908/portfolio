@@ -46,15 +46,14 @@ export const dict: Dict = {
   },
 
   // Hero
-
   "hero.title": {
-    en: "I build reliable digital products.",
-    fr: "Je crée des produits numériques fiables.",
+    en: "From bold ideas to digital products that matter.",
+    fr: "Des idées ambitieuses aux produits numériques qui comptent.",
   },
 
   "hero.intro": {
-    en: "FullStack developer building web and mobile applications from idea to production.",
-    fr: "Développeur FullStack, je conçois des applications web et mobiles, de l'idée à la mise en production.",
+    en: "I design and build scalable web and mobile applications, turning ideas into reliable products built for the real world.",
+    fr: "Je conçois et développe des applications web et mobiles évolutives, transformant les idées en produits fiables pensés pour le monde réel.",
   },
   "hero.viewProjects": {
     en: "View Projects",
