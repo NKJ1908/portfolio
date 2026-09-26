@@ -1,9 +1,9 @@
 export const SITE = {
   name: "Jean N'TCHOUGAN",
-  role: "Software Developer",
-  tagline: "I build calm, precise software.",
+  role: "Application Developer",
+  tagline: "Conception & développement de solutions numériques.",
   intro:
-    "I build modern digital solutions, from user interfaces to backend architecture, with a strong focus on code quality and user experience.",
+    "Je conçois et développe des solutions web, mobiles et intégrées pour aider les entreprises et organisations à structurer, digitaliser et faire évoluer leurs opérations.",
   email: "jeandzoko@gmail.com",
   phone: "+228 97 80 24 60",
   whatsapp: "+228 97 80 24 60",
@@ -13,10 +13,11 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/jean-n-tchougan",
 };
 
-export const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
+export const NAV_ITEMS = [
+  { id: "home", href: "#home", labelKey: "nav.home" },
+  { id: "about", href: "#about", labelKey: "nav.about" },
+  { id: "services", href: "#services", labelKey: "nav.services" },
+  { id: "stack", href: "#stack", labelKey: "nav.stack" },
+  { id: "projects", href: "#projects", labelKey: "nav.projects" },
+  { id: "contact", href: "#contact", labelKey: "nav.contact" },
 ] as const;

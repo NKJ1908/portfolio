@@ -5,13 +5,23 @@ type Props = {
   id?: string;
   eyebrow?: string;
   title: string;
+  headingLevel?: 1 | 2;
   description?: string;
   children: ReactNode;
   className?: string;
 };
 
-export function Section({ id, eyebrow, title, description, children, className = "" }: Props) {
+export function Section({
+  id,
+  eyebrow,
+  title,
+  headingLevel = 1,
+  description,
+  children,
+  className = "",
+}: Props) {
   const { ref, isVisible } = useReveal<HTMLElement>();
+  const Heading = headingLevel === 1 ? "h1" : "h2";
   return (
     <section ref={ref} id={id} className={`py-20 md:py-28 ${className}`}>
       <div className="container-x">
@@ -19,7 +29,7 @@ export function Section({ id, eyebrow, title, description, children, className =
           {eyebrow && (
             <div className="text-xs uppercase tracking-[0.2em] text-muted mb-3">{eyebrow}</div>
           )}
-          <h2 className="text-3xl md:text-4xl font-semibold">{title}</h2>
+          <Heading className="text-3xl md:text-4xl font-semibold">{title}</Heading>
           {description && (
             <p className="mt-4 text-muted text-base md:text-lg leading-relaxed">{description}</p>
           )}

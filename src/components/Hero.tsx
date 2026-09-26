@@ -1,81 +1,115 @@
-import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
-
 import portrait from "@/assets/portrait.jpg";
+import { ThreeCanvas } from "@/components/ThreeCanvas";
 import { SITE } from "@/constants/site";
 import { useT } from "@/i18n/LanguageProvider";
 
 export function Hero() {
-  const { t, lang } = useT();
+  const { lang } = useT();
+
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      const headerOffset = 76;
+      const elementPosition = elem.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+      window.history.pushState(null, "", `#${targetId}`);
+    }
+  };
 
   return (
-    <section aria-labelledby="hero-title" className="pt-16 pb-20 md:pt-24 md:pb-28">
-      <div className="container-x grid items-center gap-12 md:grid-cols-12 md:gap-16">
-        {/* Hero Content */}
-        <div className="order-2 md:order-1 md:col-span-7">
-          <h1
-            id="hero-title"
-            className="hero-enter hero-enter-2 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-5xl"
-          >
-            {lang === "fr" ? <>{t("hero.title")}</> : <>{t("hero.title")}</>}
-          </h1>
-
-          <p className="hero-enter hero-enter-3 mt-6 max-w-xl text-lg leading-relaxed text-muted">
-            {t("hero.intro")}
+    <section
+      id="home"
+      aria-labelledby="hero-title"
+      className="relative pt-16 pb-20 md:pt-24 md:pb-32 overflow-hidden"
+    >
+      <div className="container-x grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        {/* Left: Minimal Text Content */}
+        <div className="lg:col-span-6 flex flex-col items-start">
+          <p className="text-xs uppercase tracking-[0.22em] font-semibold text-muted">
+            {SITE.name}
           </p>
 
-          <div className="hero-enter hero-enter-4 mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/projects"
-              className="cta-button group inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-medium text-[#0A192F] hover:bg-white/90"
+          <p className="mt-2 text-sm font-medium text-muted tracking-tight">
+            Application Developer
+          </p>
+
+          <h1
+            id="hero-title"
+            className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] text-foreground"
+          >
+            {lang === "fr" ? (
+              <>
+                Je conçois et développe des{" "}
+                <span className="text-foreground">solutions numériques</span> pour des besoins
+                réels.
+              </>
+            ) : (
+              <>
+                I design and build <span className="text-foreground">digital solutions</span> for
+                real-world problems.
+              </>
+            )}
+          </h1>
+
+          {/* Simple CTAs */}
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              onClick={(e) => handleScrollTo(e, "projects")}
+              className="cta-button group inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-xs hover:opacity-90 cursor-pointer"
             >
-              {t("hero.viewProjects")}
+              <span>{lang === "fr" ? "Voir les projets" : "View Projects"}</span>
               <ArrowRight
                 size={16}
                 aria-hidden="true"
-                className="transition-transform duration-200 group-hover:translate-x-0.5"
+                className="transition-transform group-hover:translate-x-0.5"
               />
-            </Link>
+            </a>
 
-            <Link
-              to="/contact"
-              className="cta-button inline-flex items-center gap-2 rounded-md border border-border px-5 py-3 text-sm font-medium hover:bg-surface"
+            <a
+              href="#contact"
+              onClick={(e) => handleScrollTo(e, "contact")}
+              className="cta-button inline-flex items-center gap-2 rounded-lg border border-border bg-surface px-6 py-3 text-sm font-medium text-foreground hover:bg-surface-raised hover:border-border-hover cursor-pointer"
             >
-              <Mail size={16} aria-hidden="true" />
-              {t("hero.contactMe")}
-            </Link>
+              <Mail size={15} aria-hidden="true" />
+              <span>{lang === "fr" ? "Discuter" : "Let's talk"}</span>
+            </a>
+          </div>
+
+          {/* Discreet location marker */}
+          <div className="mt-12 text-xs text-muted/80 tracking-wide">
+            Lomé, Togo · Web, Mobile & ERP
           </div>
         </div>
 
-        {/* Hero Portrait */}
-        <div className="hero-portrait-enter order-1 md:order-2 md:col-span-5">
-          <div className="relative mx-auto max-w-md">
-            {/* Decorative Frame */}
-            <div
-              className="portrait-frame portrait-frame-outline absolute -inset-3 rounded-2xl border border-white/10"
-              aria-hidden="true"
-            />
+        {/* Right: Three.js Interactive 3D System + Secondary Portrait Integration */}
+        <div className="lg:col-span-6 relative flex items-center justify-center min-h-[360px] sm:min-h-[440px]">
+          {/* 3D Canvas */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <ThreeCanvas />
+          </div>
 
-            <div
-              className="portrait-frame portrait-frame-top absolute -left-2 -top-2 size-12 border-l border-t border-white/45"
-              aria-hidden="true"
-            />
-
-            <div
-              className="portrait-frame portrait-frame-bottom absolute -bottom-2 -right-2 size-12 border-b border-r border-white/45"
-              aria-hidden="true"
-            />
-
-            {/* Portrait */}
-            <div className="relative overflow-hidden rounded-xl border border-white/15 bg-[#0D1D34] p-2 shadow-2xl shadow-black/45">
-              <div className="overflow-hidden rounded-lg border border-border">
+          {/* Secondary Integrated Portrait Badge */}
+          <div className="relative z-10 sm:self-end sm:ml-auto p-2">
+            <div className="group flex items-center gap-3 rounded-full border border-border/80 bg-background/80 p-1.5 pr-4 shadow-xl backdrop-blur-md transition-transform hover:scale-102">
+              <div className="size-11 overflow-hidden rounded-full border border-border">
                 <img
                   src={portrait}
-                  alt={`${SITE.name} — ${SITE.role}`}
-                  className="block h-auto w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
+                  alt={SITE.name}
+                  className="size-full object-cover"
                   loading="eager"
-                  fetchPriority="high"
                 />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-semibold text-foreground">Jean N'Tchougan</div>
+                <div className="text-[11px] text-muted">Application Developer</div>
               </div>
             </div>
           </div>

@@ -530,6 +530,10 @@ export const dict: Dict = {
     en: "Websites",
     fr: "Sites vitrine",
   },
+  "projects.results": {
+    en: "projects displayed.",
+    fr: "projets affichés.",
+  },
 
   // Project Detail
 
@@ -649,6 +653,22 @@ export const dict: Dict = {
     en: "Thanks — I'll be in touch shortly.",
     fr: "Merci — je reviens vers vous rapidement.",
   },
+  "contact.required": {
+    en: "This field is required.",
+    fr: "Ce champ est obligatoire.",
+  },
+  "contact.emailInvalid": {
+    en: "Enter a valid email address.",
+    fr: "Saisissez une adresse e-mail valide.",
+  },
+  "contact.error": {
+    en: "Your message could not be sent. Please try again or use another contact method.",
+    fr: "Votre message n'a pas pu être envoyé. Réessayez ou utilisez un autre moyen de contact.",
+  },
+  "contact.sending": {
+    en: "Sending…",
+    fr: "Envoi en cours…",
+  },
 
   "contact.label.email": {
     en: "Email",
@@ -724,5 +744,403 @@ export const dict: Dict = {
   "err.tryAgain": {
     en: "Try again",
     fr: "Réessayer",
+  },
+  "hero.eyebrow": {
+    en: "Digital professional · Lomé, Togo",
+    fr: "Professionnel du numérique · Lomé, Togo",
+  },
+  "hero.signature": {
+    en: "Web & mobile applications · Systems integration · ERP / Odoo",
+    fr: "Applications web et mobiles · Intégration de systèmes · ERP / Odoo",
+  },
+  "cap.webMobile.t": {
+    en: "Web & mobile solutions",
+    fr: "Solutions web & mobiles",
+  },
+  "cap.webMobile.d": {
+    en: "Web and mobile applications designed around a clear user need and a practical delivery path.",
+    fr: "Des applications web et mobiles conçues à partir d'un besoin utilisateur clair et d'un chemin de mise en œuvre pragmatique.",
+  },
+  "cap.integration.t": {
+    en: "Integration & systems",
+    fr: "Intégration & systèmes",
+  },
+  "cap.integration.d": {
+    en: "APIs and connected tools that help teams make their workflows and information easier to use.",
+    fr: "Des API et outils connectés qui aident les équipes à rendre leurs processus et leurs informations plus exploitables.",
+  },
+  "cap.odoo.t": {
+    en: "ERP / Odoo",
+    fr: "ERP / Odoo",
+  },
+  "cap.odoo.d": {
+    en: "A developing practice with Odoo for websites, e-commerce and business tools, grounded in real project work.",
+    fr: "Une pratique en développement avec Odoo pour les sites, l'e-commerce et les outils métier, ancrée dans des projets réels.",
+  },
+  "home.capabilitiesEyebrow": {
+    en: "What I contribute",
+    fr: "Ce à quoi je contribue",
+  },
+  "home.capabilitiesTitle": {
+    en: "Technology in service of day-to-day operations.",
+    fr: "La technologie au service des opérations.",
+  },
+  "home.capabilitiesDesc": {
+    en: "I use development and integration to turn a concrete need into a useful digital solution.",
+    fr: "J'utilise le développement et l'intégration pour transformer un besoin concret en solution numérique utile.",
+  },
+  "home.exploreCapabilities": {
+    en: "Explore my areas of contribution",
+    fr: "Découvrir mes domaines d'intervention",
+  },
+  "home.trajectoryEyebrow": {
+    en: "Professional direction",
+    fr: "Trajectoire professionnelle",
+  },
+  "home.trajectoryTitle": {
+    en: "From applications to digital transformation.",
+    fr: "Des applications à la transformation digitale.",
+  },
+  "home.trajectoryDesc": {
+    en: "This is a professional direction in progress, built through each application, integration and business context—not a claim that the destination has already been reached.",
+    fr: "C'est une trajectoire en construction, nourrie par chaque application, intégration et contexte métier — et non une destination déjà atteinte.",
+  },
+  "home.trajectory1": {
+    en: "Application development",
+    fr: "Développement d'applications",
+  },
+  "home.trajectory2": {
+    en: "Business applications",
+    fr: "Applications métier",
+  },
+  "home.trajectory3": {
+    en: "Systems integration",
+    fr: "Intégration de systèmes",
+  },
+  "home.trajectory4": {
+    en: "ERP / Odoo",
+    fr: "ERP / Odoo",
+  },
+  "home.trajectory5": {
+    en: "Information systems",
+    fr: "Systèmes d'information",
+  },
+  "home.trajectory6": {
+    en: "Digital transformation",
+    fr: "Transformation digitale",
+  },
+  "home.visionTitle": {
+    en: "A long-term vision",
+    fr: "Une vision à long terme",
+  },
+  "home.visionDesc": {
+    en: "I am progressively building expertise in information systems, ERP and integration to contribute to the digital transformation of African businesses and organizations with solutions suited to their realities.",
+    fr: "Je construis progressivement une expertise en systèmes d'information, ERP et intégration afin de contribuer à la transformation digitale des entreprises et organisations africaines avec des solutions adaptées à leurs réalités.",
+  },
+  "home.stackDesc": {
+    en: "Tools I use in the applications, integrations and products presented on this site.",
+    fr: "Des outils utilisés dans les applications, intégrations et produits présentés sur ce site.",
+  },
+  "about.trajectoryTitle": {
+    en: "A trajectory in progress",
+    fr: "Une trajectoire en construction",
+  },
+  "about.trajectoryDesc": {
+    en: "My current practice is application development. Each project is an opportunity to deepen my understanding of business needs, integration and information systems.",
+    fr: "Ma pratique actuelle est le développement d'applications. Chaque projet est une occasion d'approfondir ma compréhension des besoins métier, de l'intégration et des systèmes d'information.",
+  },
+  "about.trajectory1": {
+    en: "Application development",
+    fr: "Développement d'applications",
+  },
+  "about.trajectory2": {
+    en: "Business applications",
+    fr: "Applications métier",
+  },
+  "about.trajectory3": {
+    en: "Systems integration",
+    fr: "Intégration de systèmes",
+  },
+  "about.trajectory4": {
+    en: "ERP / Odoo",
+    fr: "ERP / Odoo",
+  },
+  "about.trajectory5": {
+    en: "Information systems",
+    fr: "Systèmes d'information",
+  },
+  "about.trajectory6": {
+    en: "Digital transformation",
+    fr: "Transformation digitale",
+  },
+  "about.visionTitle": {
+    en: "Vision",
+    fr: "Vision",
+  },
+  "about.visionDesc": {
+    en: "I am progressively building expertise in information systems, ERP and integration to contribute to the digital transformation of African businesses and organizations with solutions suited to their realities.",
+    fr: "Construire progressivement une expertise en systèmes d'information, ERP et intégration afin de contribuer à la transformation digitale des entreprises et organisations africaines avec des solutions adaptées à leurs réalités.",
+  },
+  "footer.location": {
+    en: "Lomé, Togo",
+    fr: "Lomé, Togo",
+  },
+  "hero.positioningTitle": {
+    en: "Digital solutions that help organizations move their operations forward.",
+    fr: "Des solutions numériques qui font évoluer les opérations.",
+  },
+  "hero.positioningIntro": {
+    en: "Based in Lomé, I am an application developer and digital professional. I design web, mobile and integrated solutions to help businesses and organizations structure, digitize and evolve their operations.",
+    fr: "Basé à Lomé, je suis développeur d'applications et professionnel du numérique. Je conçois des solutions web, mobiles et intégrées pour aider les entreprises et organisations à structurer, digitaliser et faire évoluer leurs opérations.",
+  },
+  "hero.discussProject": {
+    en: "Discuss a digitalization need",
+    fr: "Discuter d'un besoin de digitalisation",
+  },
+  "about.positionTitle": {
+    en: "Building applications while growing into systems and integration.",
+    fr: "Concevoir des applications, progresser vers les systèmes et l'intégration.",
+  },
+  "about.positionDesc": {
+    en: "I am an application developer and digital professional based in Lomé, with a practice spanning web, mobile, integration and Odoo projects.",
+    fr: "Je suis développeur d'applications et professionnel du numérique basé à Lomé, avec une pratique qui couvre des projets web, mobile, d'intégration et Odoo.",
+  },
+  "services.capabilitiesEyebrow": {
+    en: "Areas of contribution",
+    fr: "Domaines d'intervention",
+  },
+  "services.capabilitiesTitle": {
+    en: "Capabilities for practical digital projects.",
+    fr: "Des capacités pour des projets numériques concrets.",
+  },
+  "services.capabilitiesDesc": {
+    en: "The work I can contribute today, from application delivery to connected tools and Odoo-based projects.",
+    fr: "Les domaines auxquels je peux contribuer aujourd'hui, de la réalisation d'applications aux outils connectés et projets autour d'Odoo.",
+  },
+  "footer.position": {
+    en: "Applications · Integration · ERP / Odoo",
+    fr: "Applications · Intégration · ERP / Odoo",
+  },
+
+  // One-page Navigation & Themes
+  "nav.stack": {
+    en: "Stack",
+    fr: "Stack",
+  },
+  "theme.toggle": {
+    en: "Toggle dark / light theme",
+    fr: "Basculer thème sombre / clair",
+  },
+  "theme.dark": {
+    en: "Dark",
+    fr: "Sombre",
+  },
+  "theme.light": {
+    en: "Light",
+    fr: "Clair",
+  },
+  "hero.status": {
+    en: "Available for application projects & digital transformation",
+    fr: "Disponible pour projets applicatifs & transformation digitale",
+  },
+  "hero.badge1": {
+    en: "Web & Mobile Applications",
+    fr: "Applications Web & Mobiles",
+  },
+  "hero.badge2": {
+    en: "API & Systems Integration",
+    fr: "Intégration d'API & Systèmes",
+  },
+  "hero.badge3": {
+    en: "ERP & Product Mindset",
+    fr: "ERP & Culture Produit",
+  },
+  "hero.exploreWork": {
+    en: "Explore Case Studies",
+    fr: "Découvrir les réalisations",
+  },
+  "hero.contactCta": {
+    en: "Discuss a project",
+    fr: "Discuter d'un projet",
+  },
+  "about.sectionEyebrow": {
+    en: "About Jean",
+    fr: "À propos de Jean",
+  },
+  "about.introParagraph1": {
+    en: "Based in Lomé, Togo, I design and build reliable web and mobile applications for businesses and organizations seeking to structure and modernize their operations.",
+    fr: "Basé à Lomé au Togo, je conçois et développe des solutions web et mobiles fiables pour les entreprises et organisations souhaitant structurer et moderniser leurs activités.",
+  },
+  "about.introParagraph2": {
+    en: "My approach focuses on solid software architecture, ergonomic interfaces, and dependable business integrations. I treat each digital product not as a visual showcase, but as an operational engine that delivers real-world value.",
+    fr: "Mon approche repose sur une architecture logicielle rigoureuse, des interfaces ergonomiques et des intégrations métier durables. Je conçois chaque produit comme un véritable levier opérationnel au service de résultats concrets.",
+  },
+  "about.metrics.projects": {
+    en: "Shipped Projects",
+    fr: "Projets déployés",
+  },
+  "about.metrics.domains": {
+    en: "Core Domains (Web, Mobile, ERP)",
+    fr: "Domaines clés (Web, Mobile, ERP)",
+  },
+  "about.metrics.mindset": {
+    en: "Architecture & Product Focus",
+    fr: "Rigueur & Culture Produit",
+  },
+  "services.eyebrow": {
+    en: "Services & Capabilities",
+    fr: "Services & Domaines d'Intervention",
+  },
+  "services.title": {
+    en: "Digital solutions designed around concrete business needs.",
+    fr: "Des solutions numériques conçues pour de vrais besoins métier.",
+  },
+  "services.desc": {
+    en: "Every service addresses a concrete operational challenge, from custom software design to business management integration.",
+    fr: "Chaque service répond à un défi opérationnel précis, de la conception logicielle sur-mesure à l'intégration d'outils de gestion.",
+  },
+  "svc.problemSolved": {
+    en: "Problem solved",
+    fr: "Problème résolu",
+  },
+  "svc.approach": {
+    en: "Approach & Deliverables",
+    fr: "Approche & Livrables",
+  },
+  "svc.appDev.title": {
+    en: "Application Development",
+    fr: "Développement d'Applications",
+  },
+  "svc.appDev.desc": {
+    en: "End-to-end design and engineering of responsive web applications and cross-platform mobile apps.",
+    fr: "Conception et développement complet d'applications web réactives et d'applications mobiles cross-platform.",
+  },
+  "svc.appDev.problem": {
+    en: "Need for a tailored web or mobile solution that provides a fluid user experience without accumulating technical debt.",
+    fr: "Besoin d'une application sur-mesure offrant une expérience utilisateur fluide sans accumuler de dette technique.",
+  },
+  "svc.appDev.solution": {
+    en: "Modular React and Flutter architectures crafted with clean code, strong typing, and responsive layout.",
+    fr: "Architectures modulaires en React et Flutter conçues avec un code rigoureux, typé et adapté à tous les écrans.",
+  },
+  "svc.appDev.deliverables": {
+    en: "Web Apps · Mobile Apps (iOS/Android) · Custom Portals · Ergonomic UI",
+    fr: "Applications Web · Applications Mobiles · Portails sur-mesure · Interfaces ergonomiques",
+  },
+  "svc.digitalization.title": {
+    en: "Business Digitalization",
+    fr: "Digitalisation des Processus",
+  },
+  "svc.digitalization.desc": {
+    en: "Transforming manual, paper, or fragmented spreadsheet workflows into structured digital tools.",
+    fr: "Transformation de processus manuels ou de fichiers Excel dispersés en outils numériques structurés.",
+  },
+  "svc.digitalization.problem": {
+    en: "Operational friction, repetitive data re-entry, and lack of visibility into daily business operations.",
+    fr: "Frottements opérationnels, saisies manuelles répétitives et manque de visibilité sur l'activité quotidienne.",
+  },
+  "svc.digitalization.solution": {
+    en: "Custom internal management tools, real-time activity dashboards, and guided data entry workflows.",
+    fr: "Outils de gestion interne sur-mesure, tableaux de bord de suivi en temps réel et formulaires guidés.",
+  },
+  "svc.digitalization.deliverables": {
+    en: "Internal Business Tools · Dashboards · Automated Workflows · Data Capture",
+    fr: "Outils de gestion interne · Tableaux de bord · Automatisation de workflows · Saisie centralisée",
+  },
+  "svc.integration.title": {
+    en: "Systems Integration & APIs",
+    fr: "Intégration de Systèmes & API",
+  },
+  "svc.integration.desc": {
+    en: "Connecting distinct software, payment gateways, CRM, and third-party APIs into a unified ecosystem.",
+    fr: "Connexion de logiciels hétérogènes, passerelles de paiement, CRM et API tierces en un écosystème unifié.",
+  },
+  "svc.integration.problem": {
+    en: "Isolated software silos that do not communicate, causing duplicate efforts and data inconsistencies.",
+    fr: "Silos applicatifs isolés qui ne communiquent pas, provoquant des doubles saisies et des incohérences.",
+  },
+  "svc.integration.solution": {
+    en: "Designing resilient REST endpoints, webhooks, and secure bridges between your applications and external services.",
+    fr: "Conception de points d'API REST résilients, de webhooks et de passerelles sécurisées entre vos outils.",
+  },
+  "svc.integration.deliverables": {
+    en: "REST APIs · Webhook Orchestration · Payment Gateway Integrations · Service Bridges",
+    fr: "APIs REST · Orchestration de Webhooks · Passerelles de paiement · Synchronisation de services",
+  },
+  "svc.erp.title": {
+    en: "ERP & Application Architecture",
+    fr: "ERP & Architecture Applicative",
+  },
+  "svc.erp.desc": {
+    en: "Deploying and customizing Odoo ERP to structure core operations, inventory, sales, and e-commerce.",
+    fr: "Déploiement et personnalisation d'Odoo ERP pour structurer les opérations, stocks, ventes et e-commerce.",
+  },
+  "svc.erp.problem": {
+    en: "Growing organizations struggling to maintain order across sales, inventory, accounting, and online catalogs.",
+    fr: "Organisations en croissance peinant à maintenir la cohérence entre ventes, stocks, facturation et catalogue.",
+  },
+  "svc.erp.solution": {
+    en: "Configuring and extending Odoo modules, customizing workflows, and integrating e-commerce storefronts.",
+    fr: "Configuration et adaptation de modules Odoo, personnalisation de workflows et connexion de boutiques en ligne.",
+  },
+  "svc.erp.deliverables": {
+    en: "Odoo Implementation · Custom Modules · E-commerce Sync · Database Architecture",
+    fr: "Implémentation Odoo · Modules sur-mesure · Synchronisation e-commerce · Architecture de données",
+  },
+  "stack.eyebrow": {
+    en: "Technical Stack",
+    fr: "Stack Technique",
+  },
+  "stack.title": {
+    en: "An architecture of competencies built for complete systems.",
+    fr: "Une architecture de compétences au service des systèmes complets.",
+  },
+  "stack.desc": {
+    en: "Technologies selected for reliability, longevity, and their ability to work together seamlessly.",
+    fr: "Des technologies sélectionnées pour leur robustesse, leur pérennité et leur capacité à former des systèmes cohérents.",
+  },
+  "projects.caseEyebrow": {
+    en: "Projects & Case Studies",
+    fr: "Réalisations & Études de cas",
+  },
+  "projects.caseTitle": {
+    en: "Concrete products built for real operational impact.",
+    fr: "Des produits concrets conçus pour un impact réel.",
+  },
+  "projects.caseDesc": {
+    en: "Discover how each application solves a concrete operational challenge, from business context to production delivery.",
+    fr: "Découvrez comment chaque application résout un besoin concret, de la compréhension métier à la mise en production.",
+  },
+  "projects.problem": {
+    en: "Challenge & Context",
+    fr: "Contexte & Problématique",
+  },
+  "projects.solution": {
+    en: "Solution Built",
+    fr: "Solution conçue",
+  },
+  "projects.role": {
+    en: "Jean's Role",
+    fr: "Rôle de Jean",
+  },
+  "projects.tech": {
+    en: "Technologies",
+    fr: "Technologies",
+  },
+  "projects.result": {
+    en: "Result & Impact",
+    fr: "Résultat & Impact",
+  },
+  "projects.visit": {
+    en: "Visit website",
+    fr: "Consulter le site",
+  },
+  "projects.caseStudy": {
+    en: "Case Study Breakdown",
+    fr: "Détail de l'étude de cas",
+  },
+  "projects.filterAll": {
+    en: "All Projects",
+    fr: "Tous les projets",
   },
 };

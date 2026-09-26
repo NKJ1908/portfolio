@@ -1,35 +1,58 @@
-import {
-  Code2,
-  Globe,
-  Layout,
-  Server,
-  Plug,
-  Boxes,
-  ShoppingCart,
-  GaugeCircle,
-  Image as ImageIcon,
-} from "lucide-react";
+import { Boxes, Layers, Network, Smartphone, type LucideIcon } from "lucide-react";
 import type { dict } from "@/i18n/translations";
 
-type Key = keyof typeof dict;
+export interface ServiceItem {
+  id: string;
+  icon: LucideIcon;
+  titleKey: keyof typeof dict | string;
+  descKey: keyof typeof dict | string;
+  problemKey: keyof typeof dict | string;
+  solutionKey: keyof typeof dict | string;
+  deliverablesKey: keyof typeof dict | string;
+}
 
-export const PERSONAL_SERVICES: { icon: typeof Code2; titleKey: Key; descKey: Key }[] = [
-  { icon: Code2, titleKey: "svc.webapp.t", descKey: "svc.webapp.d" },
-  { icon: Globe, titleKey: "svc.bizsite.t", descKey: "svc.bizsite.d" },
-  { icon: Layout, titleKey: "svc.frontend.t", descKey: "svc.frontend.d" },
-  { icon: Server, titleKey: "svc.backend.t", descKey: "svc.backend.d" },
-  { icon: Plug, titleKey: "svc.api.t", descKey: "svc.api.d" },
-  { icon: Boxes, titleKey: "svc.custom.t", descKey: "svc.custom.d" },
-  { icon: ShoppingCart, titleKey: "svc.ecom.t", descKey: "svc.ecom.d" },
-  { icon: GaugeCircle, titleKey: "svc.dash.t", descKey: "svc.dash.d" },
+export const SERVICES: ServiceItem[] = [
+  {
+    id: "app-development",
+    icon: Smartphone,
+    titleKey: "svc.appDev.title",
+    descKey: "svc.appDev.desc",
+    problemKey: "svc.appDev.problem",
+    solutionKey: "svc.appDev.solution",
+    deliverablesKey: "svc.appDev.deliverables",
+  },
+  {
+    id: "business-digitalization",
+    icon: Layers,
+    titleKey: "svc.digitalization.title",
+    descKey: "svc.digitalization.desc",
+    problemKey: "svc.digitalization.problem",
+    solutionKey: "svc.digitalization.solution",
+    deliverablesKey: "svc.digitalization.deliverables",
+  },
+  {
+    id: "systems-integration",
+    icon: Network,
+    titleKey: "svc.integration.title",
+    descKey: "svc.integration.desc",
+    problemKey: "svc.integration.problem",
+    solutionKey: "svc.integration.solution",
+    deliverablesKey: "svc.integration.deliverables",
+  },
+  {
+    id: "erp-architecture",
+    icon: Boxes,
+    titleKey: "svc.erp.title",
+    descKey: "svc.erp.desc",
+    problemKey: "svc.erp.problem",
+    solutionKey: "svc.erp.solution",
+    deliverablesKey: "svc.erp.deliverables",
+  },
 ];
 
-/*export const AGENCY_SERVICES: { icon: typeof Code2; titleKey: Key; descKey: Key }[] = [
-  { icon: BadgeCheck, titleKey: "ag.branding.t", descKey: "ag.branding.d" },
-  { icon: Palette,    titleKey: "ag.graphic.t",  descKey: "ag.graphic.d" },
-  { icon: PenTool,    titleKey: "ag.logo.t",     descKey: "ag.logo.d" },
-  { icon: FileImage,  titleKey: "ag.flyers.t",   descKey: "ag.flyers.d" },
-  { icon: ImageIcon,  titleKey: "ag.posters.t",  descKey: "ag.posters.d" },
-  { icon: Megaphone,  titleKey: "ag.social.t",   descKey: "ag.social.d" },
-  { icon: Sparkles,   titleKey: "ag.corp.t",     descKey: "ag.corp.d" },
-];*/
+// Backward compatibility export
+export const PERSONAL_SERVICES = SERVICES.map((s) => ({
+  icon: s.icon,
+  titleKey: s.titleKey as keyof typeof dict,
+  descKey: s.descKey as keyof typeof dict,
+}));

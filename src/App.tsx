@@ -1,31 +1,53 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
-import { Link, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
+import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { CustomCursor } from "@/components/CustomCursor";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { LanguageProvider, useT } from "@/i18n/LanguageProvider";
 
-import About from "@/routes/about";
-import Contact from "@/routes/contact";
 import Home from "@/routes/index";
-import Projects from "@/routes/projects";
-import Services from "@/routes/services";
 
-function NotFound() {
-  const { t } = useT();
+const SITE_URL = "https://jean-ntchougan.tech";
 
-  return (
-    <div className="container-x py-24 text-center">
-      <h1 className="text-7xl font-semibold">404</h1>
+function PageMetadata() {
+  const { lang } = useT();
 
-      <p className="mt-4 text-muted">{t("err.notFoundDesc")}</p>
+  useEffect(() => {
+    const meta = {
+      en: {
+        title: "Jean N'TCHOUGAN — Application Developer & Digital Solutions",
+        description:
+          "Jean N'TCHOUGAN designs and builds reliable web and mobile applications for businesses and organizations in Lomé, Togo.",
+      },
+      fr: {
+        title: "Jean N'TCHOUGAN — Développeur d'applications & Solutions numériques",
+        description:
+          "Jean N'TCHOUGAN conçoit et développe des solutions web, mobiles et intégrées pour faire évoluer les opérations d'entreprises.",
+      },
+    }[lang];
 
-      <Link to="/" className="btn btn-primary mt-6">
-        {t("err.goHome")}
-      </Link>
-    </div>
-  );
+    document.title = meta.title;
+
+    const updateMeta = (selector: string, content: string) => {
+      document.querySelector<HTMLMetaElement>(selector)?.setAttribute("content", content);
+    };
+
+    document
+      .querySelector<HTMLLinkElement>('link[rel="canonical"]')
+      ?.setAttribute("href", `${SITE_URL}/`);
+    updateMeta('meta[name="description"]', meta.description);
+    updateMeta('meta[property="og:url"]', `${SITE_URL}/`);
+    updateMeta('meta[property="og:title"]', meta.title);
+    updateMeta('meta[property="og:description"]', meta.description);
+    updateMeta('meta[name="twitter:title"]', meta.title);
+    updateMeta('meta[name="twitter:description"]', meta.description);
+  }, [lang]);
+
+  return null;
 }
 
 function ScrollToTopButton() {
@@ -40,17 +62,12 @@ function ScrollToTopButton() {
           setShow(window.scrollY > 400);
           ticking = false;
         });
-
         ticking = true;
       }
     };
 
     handleScroll();
-
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
-
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -59,6 +76,7 @@ function ScrollToTopButton() {
       top: 0,
       behavior: "smooth",
     });
+    window.history.pushState(null, "", "#home");
   };
 
   return (
@@ -67,25 +85,21 @@ function ScrollToTopButton() {
       onClick={scrollToTop}
       aria-label="Retour en haut"
       className={`
-        fixed bottom-6 right-6 z-50
-        flex h-12 w-12 items-center justify-center
+        fixed bottom-6 right-6 z-40
+        flex size-11 items-center justify-center
         rounded-full
-        border border-border/60
+        border border-border
         bg-surface/90
         text-foreground
-        shadow-xl
+        shadow-lg
         backdrop-blur-md
-
-        transition-all duration-500 ease-out
-
+        transition-all duration-300 ease-out
         hover:-translate-y-1
-        hover:scale-110
+        hover:border-border-hover
         hover:bg-primary
         hover:text-primary-foreground
-        hover:shadow-2xl
-
-        active:scale-50
-
+        hover:shadow-xl
+        cursor-pointer
         ${
           show
             ? "translate-y-0 opacity-100 pointer-events-auto"
@@ -93,13 +107,7 @@ function ScrollToTopButton() {
         }
       `}
     >
-      <ArrowUp
-        size={20}
-        className="animate-bounce"
-        style={{
-          animationDuration: "1.8s",
-        }}
-      />
+      <ArrowUp size={18} />
     </button>
   );
 }
@@ -107,33 +115,53 @@ function ScrollToTopButton() {
 export function App() {
   const location = useLocation();
 
+  // Scroll to anchor on route change with hash
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant" as ScrollBehavior,
-    });
-  }, [location.pathname]);
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        const headerOffset = 72;
+        const elementPosition = elem.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [location.hash]);
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
+    <ThemeProvider>
+      <LanguageProvider>
+        <div className="relative min-h-screen flex flex-col bg-background text-foreground transition-colors duration-200">
+          {/* Subtle Global Architectural Background */}
+          <AnimatedBackground />
 
-        <main key={location.pathname} className="flex-1 page-transition">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+          {/* Minimal Custom Cursor */}
+          <CustomCursor />
 
-        <ScrollToTopButton />
+          <PageMetadata />
+          <Navbar />
 
-        <Footer />
-      </div>
-    </LanguageProvider>
+          <main className="relative z-10 flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* Backward compatibility: redirect any past separate routes to their anchor in the one-page landing */}
+              <Route path="/about" element={<Navigate to="/#about" replace />} />
+              <Route path="/services" element={<Navigate to="/#services" replace />} />
+              <Route path="/stack" element={<Navigate to="/#stack" replace />} />
+              <Route path="/projects" element={<Navigate to="/#projects" replace />} />
+              <Route path="/contact" element={<Navigate to="/#contact" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+
+          <ScrollToTopButton />
+          <Footer />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }
